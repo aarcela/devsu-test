@@ -1,0 +1,15 @@
+.form_error{
+		color: red;
+	}
+.add_form_container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.add_form_header {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #f5f5f5;
+}

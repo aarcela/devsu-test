@@ -1,0 +1,7 @@
+<section class="add_form_container">
+	<div class="add_form_header">
+		<h2>Formulario de Registro</h2>
+	</div>
+		<app-basic-form (saveProduct)="onSubmit($event)"></app-basic-form>
+		<span *ngIf="message" class="form_error">{{message}}</span>
+</section>

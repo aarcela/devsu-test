@@ -1,0 +1,18 @@
+*{
+	font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+nav {
+  display: flex;
+  justify-content: end;
+}
+
+.main_container {
+  background-color: grayscale($color: #f5f5f5);
+  padding: 2rem;
+}
+
+.logo{
+  width: 11rem;
+  cursor: pointer;
+}

@@ -1,0 +1,52 @@
+
+
+	<form class="content_form_container" [formGroup]="basicForm" (ngSubmit)="onSubmit()">
+		<div>
+			<label for="id">ID</label>
+			<input id="id" type="text" formControlName="id" name="id"
+				[ngClass]="{'formErrorInput': !basicForm.get('id')?.valid && basicForm.get('id')?.touched}">
+			<span class="formError" *ngIf="!basicForm.get('id')?.valid && basicForm.get('id')?.touched">
+				ID no válido
+			</span>
+		</div>
+		<div>
+			<label for="name">Nombre</label>
+			<input id="name" type="text" formControlName="name"
+				[ngClass]="{'formErrorInput': !basicForm.get('name')?.valid && basicForm.get('name')?.touched}">
+			<span class="formError" *ngIf="!basicForm.get('name')?.valid && basicForm.get('name')?.touched">
+				Nombre no válido
+			</span>
+		</div>
+		<div>
+			<label for="description">Description</label>
+			<input id="description" type="text" formControlName="description"
+				[ngClass]="{'formErrorInput': !basicForm.get('description')?.valid && basicForm.get('description')?.touched}">
+			<span class="formError" *ngIf="!basicForm.get('description')?.valid && basicForm.get('description')?.touched">
+				Descripción no válido
+			</span>
+		</div>
+		<div>
+			<label for="logo">Logo</label>
+			<input id="logo" type="text" formControlName="logo">
+		</div>
+		<div>
+			<label for="date_release">Fecha Liberación</label>
+			<input id="date_release" type="date" formControlName="date_release"
+				[ngClass]="{'formErrorInput': !basicForm.get('date_release')?.valid && basicForm.get('date_release')?.touched}">
+			<span class="formError" *ngIf="!basicForm.get('date_release')?.valid && basicForm.get('date_release')?.touched">
+				Fecha no válida
+			</span>
+		</div>
+		<div>
+			<label for="date_revision">Fecha Revisión</label>
+			<input id="date_revision" type="date" formControlName="date_revision"
+				[ngClass]="{'formErrorInput': !basicForm.get('date_revision')?.valid && basicForm.get('date_revision')?.touched}">
+			<span class="formError" *ngIf="!basicForm.get('date_revision')?.valid && basicForm.get('date_revision')?.touched">
+				Fecha no válida
+			</span>
+		</div>
+		<div class="buttons_container">
+			<button type="submit" [disabled]="!basicForm.valid" class="accept_button">{{buttonName}}</button>
+			<button type="button" class="cancel_button" (click)="cleanForm()">Reiniciar</button>
+		</div>
+</form>

@@ -1,0 +1,7 @@
+<section class="add_form_container">
+	<div class="add_form_header">
+		<h2>Editar Producto</h2>
+	</div>
+			<app-basic-form [buttonName]="'Editar'" [formData]="productInitialData" (saveProduct)="onSubmit($event)"></app-basic-form>
+			<span *ngIf="message" class="form_error">{{message}}</span>
+</section>

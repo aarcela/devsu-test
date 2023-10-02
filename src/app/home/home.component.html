@@ -1,0 +1,49 @@
+<div class="table_actions_container">
+	<input class="search_table_input" placeholder="Búsqueda..." type="text" [(ngModel)]="searchText">
+	<a routerLink="/add"><button class="accept_button" type="button">Agregar</button></a>
+</div>
+<div class="table_container" *ngIf="products.length; else isEmpty">
+	<table>
+		<thead>
+			<th>Logo</th>
+			<th>Nombre del producto</th>
+			<th>Descripción</th>
+			<th>Fecha de liberación</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr
+				*ngFor="let product of products | search: searchText | paginate: {itemsPerPage: tableSize, currentPage: page, totalItems: count}">
+				<td><img src="{{product.logo}}"> </td>
+				<td>{{product.name}}</td>
+				<td>{{product.description}}</td>
+				<td>{{product.date_release | date: 'dd/mm/yyyy'}}</td>
+				<td>
+					<div class="menu-nav">
+						<div class="dropdown-container" tabindex="-1">
+							<div class="three-dots"></div>
+							<div class="dropdown">
+								<a [routerLink]="['/edit', product]">
+									<span>Editar</span>
+								</a>
+								<div (click)="confirmProductDelete(product)">Eliminar</div>
+							</div>
+						</div>
+					</div>
+
+				</td>
+			</tr>
+		</tbody>
+		<span>{{products.length}} Resultados</span>
+	</table>
+	<pagination-controls class="pagination-controlers" (pageChange)="onTableDataChange($event)" [maxSize]="tableSize"
+	previousLabel=""
+  nextLabel="">
+	</pagination-controls>
+</div>
+<ng-container *ngIf="confirmProductDeleteFlag">
+	<app-modal (optionSelection)="checkDeleteSelection($event)" [productTitle]="confirmProductDeleteTitle"></app-modal>
+</ng-container>
+<ng-template #isEmpty>
+	<h3>No hay productos agregados</h3>
+</ng-template>
