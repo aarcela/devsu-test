@@ -66,6 +66,8 @@ export class HomeComponent implements OnInit {
     this.confirmProductDeleteFlag = false
 
   }
-
+  changeTotalPagination(event: any) {
+    this.tableSize = event.target.value
+  }
 
 }

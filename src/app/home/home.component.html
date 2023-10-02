@@ -36,10 +36,17 @@
 		</tbody>
 		<span>{{products.length}} Resultados</span>
 	</table>
-	<pagination-controls class="pagination-controlers" (pageChange)="onTableDataChange($event)" [maxSize]="tableSize"
-	previousLabel=""
-  nextLabel="">
+	<div class="pagination_container">
+		<pagination-controls class="pagination-controlers" (pageChange)="onTableDataChange($event)" [maxSize]="tableSize"
+		previousLabel=""
+		nextLabel="">
 	</pagination-controls>
+	<select name="Selector" id="num_of_records" (change)="changeTotalPagination($event)">
+		<option value="5">5</option>
+		<option value="10">10</option>
+		<option value="20">20</option>
+	</select>
+</div>
 </div>
 <ng-container *ngIf="confirmProductDeleteFlag">
 	<app-modal (optionSelection)="checkDeleteSelection($event)" [productTitle]="confirmProductDeleteTitle"></app-modal>
